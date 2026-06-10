@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — Padaria e Confeitaria Carla</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rosa:    #D4526A;
+    --rosa-claro: #FBEEF1;
+    --rosa-medio: #F2C4CE;
+    --dourado: #C8923A;
+    --dourado-claro: #FBF3E8;
+    --creme:   #FFFDF9;
+    --marrom:  #3D2010;
+    --marrom-medio: #7A4520;
+    --cinza:   #6B5550;
+    --cinza-claro: #F5F0ED;
+    --branco:  #FFFFFF;
+    --borda:   rgba(212,82,106,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--creme);
+    color: var(--marrom);
+    overflow-x: hidden;
+  }
+
+  /* PADRÃO DE BOLINHAS */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(circle, rgba(212,82,106,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #FFF5F7 0%, #FFFDF9 50%, #FBF3E8 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(212,82,106,0.1) 0%, transparent 70%);
+    top: -150px; right: -150px; border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(200,146,58,0.1) 0%, transparent 70%);
+    bottom: -100px; left: -100px; border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ÍCONES FLUTUANTES */
+  .float-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.12;
+    animation: floatUp 7s ease-in-out infinite;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .fi1 { top: 12%; left: 6%; animation-delay: 0s; font-size: 2.8rem; }
+  .fi2 { top: 18%; right: 8%; animation-delay: 1.2s; font-size: 2rem; }
+  .fi3 { bottom: 30%; left: 4%; animation-delay: 2.4s; font-size: 2.2rem; }
+  .fi4 { bottom: 20%; right: 6%; animation-delay: 0.8s; font-size: 2.5rem; }
+  .fi5 { top: 55%; left: 12%; animation-delay: 3.2s; font-size: 1.6rem; }
+  .fi6 { top: 38%; right: 4%; animation-delay: 1.8s; font-size: 1.8rem; }
+  .fi7 { top: 72%; right: 14%; animation-delay: 2.8s; font-size: 1.5rem; }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33%  { transform: translateY(-14px) rotate(6deg); }
+    66%  { transform: translateY(7px) rotate(-4deg); }
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--rosa-claro);
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rosa);
+    margin-bottom: 28px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 700; line-height: 1.05;
+    color: var(--marrom);
+    margin-bottom: 6px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .hero h1 .script {
+    font-style: italic; color: var(--rosa);
+    display: block; font-size: 0.9em;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--cinza); font-style: italic;
+    margin-bottom: 52px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .hero-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 0 auto 44px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .hero-divider span { font-size: 1.4rem; }
+  .hero-divider::before, .hero-divider::after {
+    content: ''; width: 70px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rosa-medio));
+  }
+  .hero-divider::after { background: linear-gradient(90deg, var(--rosa-medio), transparent); }
+
+  /* STATS */
+  .hero-stats {
+    display: flex; gap: 0; justify-content: center;
+    flex-wrap: wrap; border: 1px solid var(--borda);
+    border-radius: 20px; background: var(--branco);
+    box-shadow: 0 8px 40px rgba(212,82,106,0.1);
+    overflow: hidden;
+    opacity: 0; animation: fadeUp 0.7s ease 0.9s forwards;
+    position: relative; z-index: 1;
+  }
+
+  .stat {
+    padding: 28px 36px; text-align: center;
+    border-right: 1px solid var(--borda);
+    transition: background 0.3s ease; cursor: default;
+  }
+  .stat:last-child { border-right: none; }
+  .stat:hover { background: var(--rosa-claro); }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--rosa); line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cinza);
+  }
+
+  .scroll-cue {
+    position: absolute; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 0.7s ease 1.3s forwards;
+  }
+  .scroll-cue span { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cinza); }
+  .scroll-line { width: 1px; height: 36px; background: linear-gradient(180deg, var(--rosa), transparent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+
+  /* SEÇÕES */
+  .section-wrap { padding: 90px 24px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .band {
+    background: linear-gradient(135deg, #FFF0F3 0%, #FBF3E8 100%);
+    border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda);
+    padding: 90px 24px; position: relative; z-index: 1;
+  }
+  .band-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--rosa-claro); border: 1px solid var(--borda);
+    border-radius: 999px; padding: 6px 16px;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--rosa); margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700; line-height: 1.2;
+    color: var(--marrom); margin-bottom: 14px;
+  }
+  .section-title em { color: var(--rosa); font-style: italic; }
+  .section-desc { color: var(--cinza); font-size: 1rem; max-width: 560px; margin-bottom: 52px; line-height: 1.7; }
+
+  /* CARDS */
+  .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .cards-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+  .card {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: 20px; padding: 36px 30px;
+    transition: all 0.4s ease; cursor: default;
+    position: relative; overflow: hidden;
+  }
+
+  .card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--rosa), var(--dourado));
+    transform: scaleX(0); transition: transform 0.4s ease;
+  }
+
+  .card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(212,82,106,0.12); border-color: var(--rosa-medio); }
+  .card:hover::before { transform: scaleX(1); }
+
+  .card-emoji { font-size: 2.4rem; margin-bottom: 16px; display: block; transition: transform 0.3s ease; }
+  .card:hover .card-emoji { transform: scale(1.2) rotate(8deg); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--marrom); margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+  .card:hover .card-title { color: var(--rosa); }
+  .card-text { font-size: 0.88rem; color: var(--cinza); line-height: 1.7; }
+
+  /* PROPOSTA PRINCIPAL */
+  .proposta-box {
+    background: linear-gradient(135deg, var(--rosa), #B03A55);
+    border-radius: 24px; padding: 56px;
+    text-align: center; position: relative;
+    overflow: hidden; margin-top: 48px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+
+  .proposta-box::before {
+    content: '';
+    position: absolute; width: 500px; height: 500px;
+    background: rgba(255,255,255,0.06); border-radius: 50%;
+    top: -150px; right: -100px;
+  }
+
+  .proposta-box::after {
+    content: '';
+    position: absolute; width: 300px; height: 300px;
+    background: rgba(255,255,255,0.04); border-radius: 50%;
+    bottom: -80px; left: -80px;
+  }
+
+  .proposta-box:hover { transform: translateY(-6px); box-shadow: 0 30px 80px rgba(180,40,70,0.3); }
+
+  .proposta-emoji { font-size: 3rem; margin-bottom: 20px; display: block; position: relative; z-index: 1; }
+
+  .proposta-txt {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-style: italic; color: white;
+    line-height: 1.6; position: relative; z-index: 1;
+  }
+
+  .proposta-txt em {
+    font-style: normal;
+    background: rgba(255,255,255,0.22);
+    padding: 2px 10px; border-radius: 4px;
+  }
+
+  .proposta-meta {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-top: 24px; position: relative; z-index: 1;
+  }
+
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+
+  .pricing-card {
+    background: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: 20px; overflow: hidden;
+    transition: all 0.4s ease; cursor: default;
+  }
+
+  .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(212,82,106,0.12); }
+
+  .pricing-card.destaque {
+    border-color: var(--rosa); border-width: 2px;
+    box-shadow: 0 8px 40px rgba(212,82,106,0.15);
+  }
+
+  .pricing-header {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--borda);
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 12px;
+  }
+
+  .pricing-card.destaque .pricing-header { background: linear-gradient(135deg, #FFF0F3, #FBF3E8); }
+
+  .pricing-nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--marrom); margin-bottom: 4px;
+  }
+
+  .pricing-desc { font-size: 0.8rem; color: var(--cinza); }
+
+  .pricing-badge {
+    display: inline-block; font-size: 0.6rem;
+    font-weight: 800; padding: 4px 10px;
+    border-radius: 999px; text-transform: uppercase;
+    letter-spacing: 1px; white-space: nowrap; flex-shrink: 0;
+  }
+
+  .badge-rosa { background: var(--rosa-claro); color: var(--rosa); }
+  .badge-dourado { background: var(--dourado-claro); color: var(--dourado); }
+
+  .pricing-valor {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--borda);
+    display: flex; align-items: baseline; gap: 4px;
+  }
+
+  .valor-prefix { font-size: 1rem; font-weight: 700; color: var(--cinza); }
+  .valor-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700;
+    color: var(--rosa); line-height: 1;
+  }
+  .pricing-card.destaque .valor-num { color: var(--rosa); }
+  .valor-suffix { font-size: 0.8rem; color: var(--cinza); }
+
+  .pricing-itens { padding: 20px 28px; list-style: none; }
+  .pricing-itens li {
+    font-size: 0.88rem; color: var(--cinza);
+    padding: 8px 0; border-bottom: 1px dashed var(--borda);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .pricing-itens li:last-child { border-bottom: none; }
+  .pricing-itens li::before { content: '🍰'; font-size: 0.75rem; flex-shrink: 0; }
+
+  /* TIMELINE */
+  .timeline { margin-top: 48px; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 22px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--rosa), var(--dourado));
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    display: flex; gap: 28px;
+    margin-bottom: 28px; padding-left: 60px;
+    position: relative; cursor: default;
+    transition: all 0.3s ease;
+  }
+
+  .tl-dot {
+    position: absolute; left: 12px; top: 2px;
+    width: 22px; height: 22px;
+    border-radius: 50%; background: var(--branco);
+    border: 2.5px solid var(--rosa);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; transition: all 0.3s ease;
+  }
+
+  .tl-item:hover .tl-dot { background: var(--rosa); transform: scale(1.2); }
+
+  .tl-content {
+    background: var(--branco); border: 1.5px solid var(--borda);
+    border-radius: 14px; padding: 20px 24px; flex: 1;
+    transition: all 0.3s ease;
+  }
+
+  .tl-item:hover .tl-content { border-color: var(--rosa-medio); box-shadow: 0 6px 24px rgba(212,82,106,0.1); transform: translateX(4px); }
+
+  .tl-step { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rosa); margin-bottom: 4px; }
+  .tl-titulo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--marrom); margin-bottom: 6px; }
+  .tl-desc { font-size: 0.85rem; color: var(--cinza); line-height: 1.6; }
+
+  /* CONCLUSÃO */
+  .conclusao {
+    background: linear-gradient(160deg, #FFF5F7 0%, #FFFDF9 50%, #FBF3E8 100%);
+    border-top: 1px solid var(--borda);
+    padding: 100px 24px; text-align: center;
+    position: relative; overflow: hidden; z-index: 1;
+  }
+
+  .conclusao::before {
+    content: '🎂'; position: absolute;
+    font-size: 18rem; opacity: 0.04;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .conclusao-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .conclusao h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--marrom); margin-bottom: 20px;
+  }
+  .conclusao h2 em { color: var(--rosa); font-style: italic; }
+
+  .conclusao p { font-size: 1rem; color: var(--cinza); margin-bottom: 12px; line-height: 1.7; }
+  .conclusao p strong { color: var(--rosa); font-weight: 700; }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--rosa), #B03A55);
+    color: white; font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    padding: 16px 36px; border-radius: 999px;
+    text-decoration: none; margin-top: 36px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(212,82,106,0.3);
+  }
+  .cta-btn:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(212,82,106,0.4); }
+
+  .tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+  .tag {
+    background: var(--rosa-claro); border: 1px solid var(--borda);
+    border-radius: 999px; padding: 8px 18px;
+    font-size: 0.78rem; font-weight: 600; color: var(--rosa);
+  }
+
+  /* FOOTER */
+  footer { background: var(--marrom); padding: 40px 24px; text-align: center; }
+  .f-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--rosa-medio); margin-bottom: 12px; display: block; font-style: italic; }
+  footer p { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+  footer span { color: var(--rosa-medio); }
+
+  /* ANIMAÇÕES */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+
+  @media(max-width:768px) {
+    .cards-2, .pricing-grid { grid-template-columns: 1fr; }
+    .stat { padding: 20px 20px; }
+    .proposta-box { padding: 36px 24px; }
+    .section-wrap, .band { padding: 60px 20px; }
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 200; background: rgba(253,248,245,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borda);
+    display: flex; justify-content: center; align-items: center;
+    gap: 0; padding: 0 24px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-style: italic;
+    color: var(--rosa); margin-right: 24px;
+    padding-right: 24px;
+    border-right: 1px solid var(--borda);
+  }
+  .nav-btn {
+    padding: 16px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--cinza); background: transparent;
+    border: none; cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px; white-space: nowrap;
+  }
+  .nav-btn:hover { color: var(--rosa); }
+  .nav-btn.active { color: var(--rosa); border-bottom-color: var(--rosa); }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* PLANOS */
+  .planos-hero {
+    min-height: 55vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 120px 24px 60px;
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, #FFF5F7 0%, #FFFDF9 50%, #FBF3E8 100%);
+  }
+  .planos-hero::before {
+    content: ''; position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,82,106,0.1) 0%, transparent 70%);
+    top: -100px; right: -100px; border-radius: 50%; pointer-events: none;
+  }
+  .planos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+
+  .plano-card {
+    background: var(--branco); border: 1.5px solid var(--borda);
+    border-radius: 24px; overflow: hidden;
+    transition: all 0.4s ease; cursor: default; position: relative;
+  }
+  .plano-card:hover { transform: translateY(-10px); box-shadow: 0 28px 70px rgba(212,82,106,0.14); }
+  .plano-card.popular { border-color: var(--rosa); border-width: 2px; box-shadow: 0 12px 50px rgba(212,82,106,0.18); }
+
+  .plano-popular-badge {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--rosa), #B03A55);
+    color: white; font-size: 0.6rem; font-weight: 800;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 18px; border-radius: 0 0 10px 10px; white-space: nowrap;
+  }
+
+  .plano-header { padding: 40px 28px 20px; border-bottom: 1px solid var(--borda); text-align: center; }
+  .plano-card.popular .plano-header { background: linear-gradient(135deg, #FFF0F3, #FBF3E8); }
+  .plano-nome { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--marrom); margin-bottom: 6px; }
+  .plano-desc { font-size: 0.82rem; color: var(--cinza); line-height: 1.5; }
+
+  .plano-valor { padding: 24px 28px; border-bottom: 1px solid var(--borda); text-align: center; display: flex; align-items: baseline; justify-content: center; gap: 4px; }
+  .plano-prefix { font-size: 1rem; font-weight: 700; color: var(--cinza); }
+  .plano-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; color: var(--rosa); line-height: 1; }
+  .plano-suffix { font-size: 0.8rem; color: var(--cinza); }
+
+  .plano-itens { padding: 24px 28px; list-style: none; }
+  .plano-itens li { font-size: 0.87rem; color: var(--cinza); padding: 9px 0; border-bottom: 1px dashed var(--borda); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .plano-itens li:last-child { border-bottom: none; }
+  .plano-itens li::before { content: '✓'; color: var(--rosa); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .plano-itens li.destaque { font-weight: 700; color: var(--marrom); }
+
+  .plano-footer { padding: 16px 28px 28px; text-align: center; }
+  .plano-tag { display: inline-block; font-size: 0.7rem; font-weight: 800; padding: 6px 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 1px; }
+  .tag-base { background: var(--rosa-claro); color: var(--rosa); }
+  .tag-popular { background: linear-gradient(135deg, var(--rosa), #B03A55); color: white; }
+  .tag-premium { background: var(--dourado-claro); color: var(--dourado); }
+
+  .comparativo { background: var(--branco); border: 1.5px solid var(--borda); border-radius: 20px; overflow: hidden; margin-top: 40px; box-shadow: 0 4px 20px rgba(212,82,106,0.07); }
+  .comp-header { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; background: var(--rosa); padding: 16px 24px; gap: 8px; }
+  .comp-header div { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: white; text-align: center; }
+  .comp-header div:first-child { text-align: left; }
+  .comp-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 14px 24px; gap: 8px; border-bottom: 1px solid var(--borda); transition: background 0.2s ease; }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-row:hover { background: var(--rosa-claro); }
+  .comp-row div { font-size: 0.88rem; color: var(--cinza); text-align: center; }
+  .comp-row div:first-child { text-align: left; color: var(--marrom); font-weight: 600; }
+
+  @media(max-width:900px) {
+    .planos-grid { grid-template-columns: 1fr; }
+    .comp-header, .comp-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">Carla</div>
+  <button class="nav-btn active" onclick="showPage('proposta')">📋 Proposta</button>
+  <button class="nav-btn" onclick="showPage('planos')">📦 Planos de Gestão</button>
+</nav>
+
+<div id="page-proposta" class="page active">
+
+<!-- HERO -->
+<div class="hero">
+  <span class="float-icon fi1">🍞</span>
+  <span class="float-icon fi2">🎂</span>
+  <span class="float-icon fi3">🥐</span>
+  <span class="float-icon fi4">🍰</span>
+  <span class="float-icon fi5">☕</span>
+  <span class="float-icon fi6">🧁</span>
+  <span class="float-icon fi7">🥖</span>
+
+  <div class="hero-badge">📋 Proposta Comercial · Marketing Digital</div>
+
+  <h1>
+    <span class="script">Padaria e Confeitaria</span>
+    Carla
+  </h1>
+
+  <p class="hero-sub">Identidade visual + gestão de conteúdo · São Miguel das Missões, RS</p>
+
+  <div class="hero-divider"><span>🍰</span></div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-val">2.742</div>
+      <div class="stat-label">Seguidores</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">R$800</div>
+      <div class="stat-label">Identidade Visual</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">R$75</div>
+      <div class="stat-label">Por post</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">7d</div>
+      <div class="stat-label">Prazo de entrega</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Ver proposta</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- O QUE IDENTIFICAMOS -->
+<div class="section-wrap">
+  <div class="section-badge reveal">🔍 Diagnóstico</div>
+  <h2 class="section-title reveal">A Carla tem produto bom.<br><em>Falta fazer ele ser visto.</em></h2>
+  <p class="section-desc reveal">A Carla tem produto de qualidade reconhecida na cidade — mas o Instagram não conta essa história. Isso é oportunidade, não problema.</p>
+
+  <div class="cards-3">
+    <div class="card reveal reveal-delay-1">
+      <span class="card-emoji">🎨</span>
+      <div class="card-title">Sem identidade visual</div>
+      <div class="card-text">Cada post tem um estilo diferente. Sem identidade visual definida, o perfil não é reconhecido de longe e não passa a seriedade que o negócio merece.</div>
+    </div>
+    <div class="card reveal reveal-delay-2">
+      <span class="card-emoji">📸</span>
+      <div class="card-title">Conteúdo sem estratégia</div>
+      <div class="card-text">Bons produtos, mas postados sem intenção de venda. Falta o gancho que faz a pessoa parar no feed e mandar mensagem pedindo o produto.</div>
+    </div>
+    <div class="card reveal reveal-delay-3">
+      <span class="card-emoji">🚀</span>
+      <div class="card-title">Potencial não aproveitado</div>
+      <div class="card-text">2.742 seguidores com produto visual como pão, bolo e confeitaria é uma base enorme. Com conteúdo certo, esse número pode dobrar em meses.</div>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE VOU FAZER -->
+<div class="band">
+  <div class="band-inner">
+    <div class="section-badge reveal">✨ A solução</div>
+    <h2 class="section-title reveal">O que <em>entrego</em><br>para a Carla.</h2>
+    <p class="section-desc reveal">Dois serviços que se complementam — identidade visual que posiciona e conteúdo que vende.</p>
+
+    <div class="proposta-box reveal">
+      <span class="proposta-emoji">🎂</span>
+      <p class="proposta-txt">
+        "A Padaria Carla tem um produto que vende sozinho quando bem apresentado. Meu trabalho é criar a <em>identidade visual</em> que posiciona a marca e o <em>conteúdo mensal</em> que mantém a vitrine digital sempre cheia."
+      </p>
+      <div class="proposta-meta">Pedro Munaretto · Marketing Digital · @pedro_munaretto</div>
+    </div>
+  </div>
+</div>
+
+<!-- VALORES -->
+<div class="section-wrap">
+  <div class="section-badge reveal">💰 Investimento</div>
+  <h2 class="section-title reveal">Valores <em>claros,</em><br>resultado mensurável.</h2>
+  <p class="section-desc reveal">Dois serviços com preço fixo. Sem surpresa, sem taxa escondida.</p>
+
+  <div class="pricing-grid">
+
+    <!-- ID VISUAL -->
+    <div class="pricing-card destaque reveal reveal-delay-1">
+      <div class="pricing-header">
+        <div>
+          <div class="pricing-nome">Identidade Visual</div>
+          <div class="pricing-desc">Serviço único — entrega completa</div>
+        </div>
+        <span class="pricing-badge badge-rosa">Único</span>
+      </div>
+      <div class="pricing-valor">
+        <span class="valor-prefix">R$</span>
+        <span class="valor-num">800</span>
+        <span class="valor-suffix">/ uma vez</span>
+      </div>
+      <ul class="pricing-itens">
+        <li>Paleta de cores exclusiva da Carla</li>
+        <li>Tipografia definida e documentada</li>
+        <li>Logo refinado ou criado do zero</li>
+        <li>Manual de identidade visual</li>
+        <li>Templates prontos para posts e stories</li>
+        <li>Capas de destaques do Instagram</li>
+        <li>Entrega em até 7 dias úteis</li>
+      </ul>
+    </div>
+
+    <!-- POSTS MENSAIS -->
+    <div class="pricing-card reveal reveal-delay-2">
+      <div class="pricing-header">
+        <div>
+          <div class="pricing-nome">Posts Mensais</div>
+          <div class="pricing-desc">Vídeo ou carrossel — por peça</div>
+        </div>
+        <span class="pricing-badge badge-dourado">Mensal</span>
+      </div>
+      <div class="pricing-valor">
+        <span class="valor-prefix">R$</span>
+        <span class="valor-num">75</span>
+        <span class="valor-suffix">/ por post</span>
+      </div>
+      <ul class="pricing-itens">
+        <li>Reels com produto em destaque</li>
+        <li>Carrosséis de promoção ou lançamento</li>
+        <li>Legenda estratégica com CTA</li>
+        <li>Seguindo a identidade visual criada</li>
+        <li>Entrega com antecedência para aprovação</li>
+        <li>Revisão incluída em cada peça</li>
+        <li>Mínimo recomendado: 8 posts/mês</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- COMBO SUGERIDO -->
+  <div style="background:var(--dourado-claro); border:1.5px solid rgba(200,146,58,0.25); border-radius:16px; padding:28px 32px; margin-top:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;" class="reveal">
+    <div>
+      <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--dourado);margin-bottom:6px;">💡 Combo sugerido para o primeiro mês</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--marrom);">Identidade Visual + 8 posts</div>
+      <div style="font-size:0.88rem;color:var(--cinza);margin-top:4px;">R$800 + R$600 = <strong style="color:var(--marrom)">R$1.400 no primeiro mês</strong> · R$600/mês a partir do 2º</div>
+    </div>
+    <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--dourado);line-height:1;">🥐</div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="band">
+  <div class="band-inner">
+    <div class="section-badge reveal">📅 Processo</div>
+    <h2 class="section-title reveal">Como o trabalho<br><em>acontece na prática.</em></h2>
+    <p class="section-desc reveal">Do primeiro contato à entrega do conteúdo — tudo organizado e sem dor de cabeça para a Carla.</p>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div class="tl-content">
+          <div class="tl-step">Passo 01</div>
+          <div class="tl-titulo">Reunião de briefing</div>
+          <div class="tl-desc">Entendo a história da padaria, o público, os produtos principais e o que a Carla quer comunicar. Essa conversa é a base de tudo.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div class="tl-content">
+          <div class="tl-step">Passo 02</div>
+          <div class="tl-titulo">Criação da identidade visual</div>
+          <div class="tl-desc">Paleta, tipografia, logo e manual. Apresento a proposta, ajusto conforme feedback e entrego os templates prontos para usar.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div class="tl-content">
+          <div class="tl-step">Passo 03</div>
+          <div class="tl-titulo">Calendário editorial mensal</div>
+          <div class="tl-desc">Planejamos juntos os posts do mês — lançamentos, promoções, datas especiais. Você aprova antes de publicar.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div class="tl-content">
+          <div class="tl-step">Passo 04</div>
+          <div class="tl-titulo">Produção e entrega</div>
+          <div class="tl-desc">Cada peça é entregue com antecedência para revisão. Você publica ou eu publico — como preferir.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONCLUSÃO -->
+<div class="conclusao">
+  <div class="conclusao-inner reveal">
+    <div class="section-badge" style="display:inline-flex;margin-bottom:28px;">🎂 Resumo final</div>
+    <h2>Produto bom merece<br>uma vitrine <em>à altura.</em></h2>
+    <p style="margin-top:24px;">A Padaria Carla tem produto de qualidade e uma base sólida de seguidores.</p>
+    <p>Com a identidade visual certa e conteúdo estratégico, esse negócio vai aparecer online da forma que merece.</p>
+
+    <div class="tags">
+      <div class="tag">🎨 Identidade Visual — R$800</div>
+      <div class="tag">📸 Post — R$75/peça</div>
+      <div class="tag">📍 São Miguel das Missões</div>
+      <div class="tag">✅ Entrega em 7 dias</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- fim page-proposta -->
+
+<footer>
+  <span class="f-logo">Pedro Munaretto</span>
+  <p>Marketing Digital · São Miguel das Missões, RS</p>
+  <p><span>@pedro_munaretto</span> · Proposta válida por 7 dias</p>
+</footer>
+
+</div><!-- fim page-proposta -->
+
+<!-- PÁGINA 2: PLANOS -->
+<div id="page-planos" class="page">
+
+  <div class="planos-hero">
+    <span class="float-icon fi1">📱</span>
+    <span class="float-icon fi2">📊</span>
+    <span class="float-icon fi3">🎯</span>
+    <span class="float-icon fi4">🚀</span>
+    <span class="float-icon fi5">💡</span>
+    <span class="float-icon fi6">📸</span>
+    <span class="float-icon fi7">✨</span>
+
+    <div class="hero-badge">📦 Planos de Gestão</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5rem);font-weight:700;line-height:1.05;color:var(--marrom);opacity:0;animation:fadeUp 0.7s ease 0.4s forwards;position:relative;z-index:1;margin-bottom:8px;">
+      <span style="font-style:italic;color:var(--rosa);display:block;font-size:0.85em;">Gestão de Instagram</span>
+      & Tráfego Pago
+    </h1>
+    <p style="font-size:clamp(0.95rem,2vw,1.1rem);color:var(--cinza);font-style:italic;margin-bottom:0;opacity:0;animation:fadeUp 0.7s ease 0.6s forwards;position:relative;z-index:1;">
+      Três planos para cada momento do seu negócio
+    </p>
+  </div>
+
+  <div class="section-wrap">
+    <div class="section-badge reveal">💰 Investimento</div>
+    <h2 class="section-title reveal">Escolha o plano<br><em>certo para você.</em></h2>
+    <p class="section-desc reveal">Do básico ao completo — cada plano foi desenhado para um momento diferente do negócio. Sem contrato mínimo no primeiro mês.</p>
+
+    <div class="planos-grid">
+
+      <!-- PLANO BASE -->
+      <div class="plano-card reveal reveal-delay-1">
+        <div class="plano-header">
+          <div class="plano-nome">Plano Base</div>
+          <div class="plano-desc">Para quem está começando a ter presença digital</div>
+        </div>
+        <div class="plano-valor">
+          <span class="plano-prefix">R$</span>
+          <span class="plano-num">500</span>
+          <span class="plano-suffix">/mês</span>
+        </div>
+        <ul class="plano-itens">
+          <li class="destaque">4 posts por mês</li>
+          <li>Reels e carrosséis</li>
+          <li>Legendas estratégicas com CTA</li>
+          <li>Calendário editorial mensal</li>
+          <li>Identidade visual aplicada nas peças</li>
+          <li>Aprovação antes da publicação</li>
+          <li>Relatório mensal de desempenho</li>
+        </ul>
+        <div class="plano-footer">
+          <span class="plano-tag tag-base">Entrada</span>
+        </div>
+      </div>
+
+      <!-- PLANO ESSENCIAL -->
+      <div class="plano-card popular reveal reveal-delay-2">
+        <div class="plano-popular-badge">⭐ Mais escolhido</div>
+        <div class="plano-header">
+          <div class="plano-nome">Plano Essencial</div>
+          <div class="plano-desc">Posts profissionais + gestão de tráfego pago</div>
+        </div>
+        <div class="plano-valor">
+          <span class="plano-prefix">R$</span>
+          <span class="plano-num">1.200</span>
+          <span class="plano-suffix">/mês</span>
+        </div>
+        <ul class="plano-itens">
+          <li class="destaque">Posts profissionais mensais</li>
+          <li>Reels, carrosséis e stories</li>
+          <li>Gestão completa de tráfego pago</li>
+          <li>Campanhas no Facebook e Instagram Ads</li>
+          <li>Segmentação de público qualificado</li>
+          <li>Legendas estratégicas com CTA</li>
+          <li>Calendário editorial mensal</li>
+          <li>Relatório detalhado de resultados</li>
+          <li>Otimização contínua das campanhas</li>
+        </ul>
+        <div class="plano-footer">
+          <span class="plano-tag tag-popular">Recomendado</span>
+        </div>
+      </div>
+
+      <!-- PLANO AVANÇADO -->
+      <div class="plano-card reveal reveal-delay-3">
+        <div class="plano-header">
+          <div class="plano-nome">Plano Avançado</div>
+          <div class="plano-desc">Gestão extremamente profissional — máximo resultado</div>
+        </div>
+        <div class="plano-valor">
+          <span class="plano-prefix">R$</span>
+          <span class="plano-num">1.800</span>
+          <span class="plano-suffix">/mês</span>
+        </div>
+        <ul class="plano-itens">
+          <li class="destaque">12 posts por mês</li>
+          <li>Reels, carrosséis, stories e destaques</li>
+          <li>Gestão completa de tráfego pago</li>
+          <li>Múltiplas campanhas simultâneas</li>
+          <li>Criativos exclusivos para anúncios</li>
+          <li>Estratégia de conteúdo avançada</li>
+          <li>Script de atendimento para DMs</li>
+          <li>Relatório semanal de resultados</li>
+          <li>Reunião mensal de alinhamento</li>
+          <li>Prioridade total no atendimento</li>
+        </ul>
+        <div class="plano-footer">
+          <span class="plano-tag tag-premium">Premium</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COMPARATIVO -->
+    <div class="comparativo reveal" style="margin-top:48px;">
+      <div class="comp-header">
+        <div>O que está incluso</div>
+        <div>Base R$500</div>
+        <div>Essencial R$1.200</div>
+        <div>Avançado R$1.800</div>
+      </div>
+      <div class="comp-row">
+        <div>Posts mensais</div>
+        <div>4 posts</div>
+        <div>Posts profissionais</div>
+        <div>12 posts</div>
+      </div>
+      <div class="comp-row">
+        <div>Gestão de tráfego pago</div>
+        <div>—</div>
+        <div>✓</div>
+        <div>✓ Avançado</div>
+      </div>
+      <div class="comp-row">
+        <div>Criativos para anúncios</div>
+        <div>—</div>
+        <div>✓</div>
+        <div>✓ Exclusivos</div>
+      </div>
+      <div class="comp-row">
+        <div>Calendário editorial</div>
+        <div>✓</div>
+        <div>✓</div>
+        <div>✓ Estratégia avançada</div>
+      </div>
+      <div class="comp-row">
+        <div>Relatório de resultados</div>
+        <div>Mensal</div>
+        <div>Mensal detalhado</div>
+        <div>Semanal</div>
+      </div>
+      <div class="comp-row">
+        <div>Script de atendimento</div>
+        <div>—</div>
+        <div>—</div>
+        <div>✓</div>
+      </div>
+      <div class="comp-row">
+        <div>Reunião de alinhamento</div>
+        <div>—</div>
+        <div>—</div>
+        <div>✓ Mensal</div>
+      </div>
+    </div>
+
+    <!-- AVULSOS -->
+    <div style="background:var(--dourado-claro);border:1.5px solid rgba(200,146,58,0.25);border-radius:16px;padding:32px;margin-top:32px;" class="reveal">
+      <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--dourado);margin-bottom:12px;">🔧 Serviços Avulsos</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--marrom);">Script de Vendas</div>
+          <div style="font-size:0.85rem;color:var(--cinza);margin-top:4px;">R$200 · único</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--marrom);">Landing Page HTML</div>
+          <div style="font-size:0.85rem;color:var(--cinza);margin-top:4px;">Consultar valor</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--marrom);">Diagnóstico de Perfil</div>
+          <div style="font-size:0.85rem;color:var(--cinza);margin-top:4px;">Consultar valor</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="f-logo">Pedro Munaretto</span>
+    <p>Marketing Digital · São Miguel das Missões, RS</p>
+    <p><span>@pedro_munaretto</span></p>
+  </footer>
+
+</div><!-- fim page-planos -->
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('#page-proposta.active .hero');
+    if (!hero) return;
+    const s = window.scrollY;
+    hero.style.transform = `translateY(${s * 0.2}px)`;
+    hero.style.opacity = Math.max(0, 1 - s / 700);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
